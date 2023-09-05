@@ -10,7 +10,7 @@ fn generate_data(n: usize) -> (Vec<f64>, Vec<f64>) {
     let mut m = vec![0.; n * n];
     let mut v = vec![0.; n];
     for i in 0..n {
-        for j in 0..i {
+        for j in 0..(i + 1) {
             if i == j {
                 r[i * n + j] = 1. * (i as f64 + 1.);
             } else {
@@ -39,7 +39,7 @@ fn generate_data(n: usize) -> (Vec<f64>, Vec<f64>) {
         );
     }
 
-    (r, v)
+    (m, v)
 }
 
 fn linalg_ops(c: &mut Criterion) {
